@@ -1,0 +1,243 @@
+﻿@model RiskAssessment.Models.SessionModel
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="~/Content/open-iconic-bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Content/owl.theme.default.min.css" rel="stylesheet" />
+
+    <link href="~/Content/magnific-popup.css" rel="stylesheet" />
+    <link href="~/Content/aos.css" rel="stylesheet" />
+
+    <link href="~/Content/ionicons.min.css" rel="stylesheet" />
+
+    <link href="~/Content/flaticon.css" rel="stylesheet" />
+
+    <link href="~/Content/icomoon.css" rel="stylesheet" />
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <link href="~/Content/homeaction.css" rel="stylesheet" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        a.button {
+            background-color: #4473c4;
+            border: none;
+            color: white;
+            padding: 10px 30px 10px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 10px 5px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+
+
+        .card {
+            transition: -webkit-transform 0.3s ease;
+            border: none;
+            
+        }
+       
+
+            
+
+
+
+
+      
+    </style>
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    <header>
+
+
+
+        <div class="container">
+            <div class="ftco-animate">
+                <a href="/Home/Index">
+                    <img src="~/Content/Fall_Relief_edited_new.png" style="width:20%; height:20%; left:50em" />
+                </a>
+
+                <div id='cssmenu'>
+                    <ul>
+                        <li><a href="/Home/Index" class="nav-link">Home</a></li>
+                        <li class="active"><a href="/Home/Assessment" class="nav-link">Assessment</a></li>
+                        <li><a href="/Home/Tips" class="nav-link">Health Tips</a></li>
+                        <li><a href="/Home/Helplines" class="nav-link">Helplines</a></li>
+                        <li><a href="/Home/About" class="nav-link">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+
+
+    <div class="container" style="background-color:#F5F5F5;max-width:100%;margin-top:32px">
+        <div class="col-md-10" style="padding-left:120px">
+            <div class="col-md-10" style="margin-top:20px">
+                <h1 style="color:#4473c4;font-size:25px">Welcome To Fall Relief Assessment</h1>
+
+
+                <p style="color:black;font-size:16px;width:100%">
+                    Most of us will have experienced a fall  at some point.Indeed, there is no denying
+                    that the chance of falling does increaseas we age.However, we should not take falls  as a normal part of
+                    getting older into granted. In fact we can mitigate it by conducting a multi-faceted assessment.The fall
+                    rate can be reduced by 30-40% followed by our multi factorial interventions.
+                </p>
+                <br />
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="background-color:#F8F8FF;max-width:100%;margin-top:32px;margin-bottom:50px">
+
+        <div class="col-md-10" style="padding-left:120px;margin-top:10px;margin-bottom:25px">
+            <div class="col-md-5">
+                <h1 style="padding-bottom:10px;color:#4473c4;font-size:20px">Health Assessment</h1>
+                <div class="card" style="margin-top:0px;margin-bottom:30px;width:100%">
+                    <img class="card-img-top" src="/Content/health assessment.jpg" style="opacity:0.8">
+
+
+                </div>
+
+            </div>
+            <div class="col-md-6" style="margin-top:35px;width:100%">
+
+                <p style="color:black;font-size:16px">
+
+                    Personal risk factors can affect the body of the person you care about. This assessment helps you
+                    learn what is putting him/her at risk of falling and provides a personalized intervention plan in terms of exercise and
+                    nutrition for improving the current situation
+                </p>
+                <a href="@Url.Action("Instruction","Home",new
+    {
+        @SessionModel = Session["SessionID"],
+        @number = 1
+    })" class="button">Start</a>
+            </div>
+        </div>
+
+
+        <div class="col-md-10" style="padding-left:120px">
+            <div class="col-md-5">
+                <h1 style="padding-bottom:10px;color:#4473c4;font-size:20px">Home Safety Assessment</h1>
+                <div class="card" style="margin-top:0px;margin-bottom:30px;width:100%">
+                    <img class="card-img-top" src="/Content/home safety.jpg" style="opacity:0.8">
+
+
+                </div>
+
+
+            </div>
+            <div class="col-md-6" style="margin-top:35px;width:100%">
+
+                <p style="color:black;font-size:16px">
+                    Environmental risk factors relate to the world around the person  you care about. This assessment helps
+                    you check your home for hazards that could lead to a fall, offer tips on making home safer and provide
+                    a customized home safety recommendation plan
+                </p>
+
+                <a href="@Url.Action("Instruction","Home",new
+    {
+        @SessionModel = Session["SessionID"],
+        @number = 2
+    })" class="button">Start</a>
+            </div>
+        </div>
+    </div>
+    <footer class="ftco-footer ftco-bg-light" style="border-top:3px; border-top-color:#000000">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md" style="vertical-align:central">
+                    <div class="ftco-footer-widget mb-4" style="margin: 50px 0 0 30px">
+                        <h1 class="logo">
+                            <a href="#" style="letter-spacing:3px">
+                                Fall Relief <sup style="text-size-adjust:150%; color:#34b6f8">+</sup>
+                            </a>
+                        </h1>
+                        <div style="color:#34b6f8">
+                            <p>
+                                <b>Supporting you at every step</b>
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2><b>Crafted with ❤ in Melbourne</b></h2>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5" style="margin-top:50px">
+                        <h2 class="ftco-heading-2"><b>Our Services</b></h2>
+                        <ul class="list-unstyled">
+
+                            <li><a href="/Home/Assessment" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Fall Assessment</a></li>
+                            <li><a href="/Home/Tips" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Health Tips</a></li>
+                            <li><a href="/Home/EmergencyHelplines" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Emergency Helplines</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4" style="margin-top:50px">
+                        <h2 class="ftco-heading-2"><b>Contact</b></h2>
+                        For enquiries and support:
+                        <p>
+                            Contact us at <a href="mailto:fallrelief@outlook.com" target="_blank"><u>fallrelief@outlook.com</u></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+        </div>
+    </footer>
+
+
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/jquery.waypoints.min.js"></script>
+    <script src="~/Scripts/jquery.stellar.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/aos.js"></script>
+
+    <script src="~/Scripts/jquery.animateNumber.min.js"></script>
+    <script src="~/Scripts/scrollax.min.js"></script>
+    <script src="~/Scripts/google-map.js"></script>
+    <script src="~/Scripts/main.js"></script>
+</body>
+</html>

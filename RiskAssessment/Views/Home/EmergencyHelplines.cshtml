@@ -1,0 +1,498 @@
+﻿
+@{
+    ViewBag.Title = "EmergencyHelplines";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Emergency Helpline Numbers</title>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/script.js" type="text/javascript"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="~/Content/open-iconic-bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Content/owl.theme.default.min.css" rel="stylesheet" />
+
+    <link href="~/Content/magnific-popup.css" rel="stylesheet" />
+    <link href="~/Content/aos.css" rel="stylesheet" />
+
+    <link href="~/Content/ionicons.min.css" rel="stylesheet" />
+
+    <link href="~/Content/flaticon.css" rel="stylesheet" />
+
+    <link href="~/Content/icomoon.css" rel="stylesheet" />
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/script.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+
+        @@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+        /*
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 60%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            margin: 10px 10px 15px 10px;
+        }
+
+            .active, .collapsible:hover {
+                background-color: #555;
+            }
+
+            .collapsible:after {
+                content: '\002B';
+                color: white;
+                font-weight: bold;
+                float: right;
+                margin-left: 5px;
+            }
+
+        .active:after {
+            content: "\2212";
+        }
+        */
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            width: 60%;
+        }
+
+        img {
+            width: 100%;
+            height: 200px;
+        }
+
+        .content-container {
+            text-align: center;
+        }
+
+        .container-fluid {
+            text-align: center;
+        }
+
+
+
+
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Kollektif, sans-serif, Raleway;
+        }
+
+        /* Float four columns side by side */
+        .column {
+            float: left;
+            width: 25%;
+            padding: 0 10px;
+        }
+
+        /* Remove extra left and right margins, due to padding in columns */
+        .row {
+            margin: 0 -5px;
+        }
+
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+        /* Style the counter cards */
+        .card {
+            box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+            padding: 12px;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+
+            .card:hover {
+                box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+            }
+
+        /* Responsive columns - one column layout (vertical) on small screens */
+        @@media screen and (max-width: 720px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+    <header>
+        <div class="container">
+            <div class="ftco-animate">
+
+                <a href="/Home/Index">
+                    <img src="~/Content/Fall_Relief_edited_new.png" style="width:20%; height:20%;" />
+                </a>
+
+                <div id='cssmenu'>
+                    <ul>
+                        <li class="active"><a href="/Home/Index" class="nav-link">Home</a></li>
+                        <li><a href="/Home/Assessment" class="nav-link">Assessment</a></li>
+                        <li><a href="/Home/Tips" class="nav-link">Health Tips</a></li>
+                        <li><a href="/Home/EmergencyHelplines" class="nav-link">Helplines</a></li>
+                        <li><a href="/Home/About" class="nav-link">About</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!--
+        <nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/Home/Index">Fall Relief </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="/Home/Index" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="/Home/Assessment" class="nav-link">Assessment</a></li>
+                        <li class="nav-item"><a href="/Home/Health Facility" class="nav-link">Health Facility</a></li>
+                        <li class="nav-item"><a href="/Home/EmergencyHelplines" class="nav-link">Emergency Helplines</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav> -->
+
+    </header>
+
+
+    <div style="background-color:azure">
+
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <h1 style="font-weight: bold; font-family: Bahnschrift">
+                        Medical Health
+                    </h1>
+
+                    <hr />
+
+                    <p>
+
+                    </p>
+
+                    <h2 style="font-family:'Segoe UI'">
+                        <a href="https://www.diabetesaustralia.com.au/" target="_blank" style="color:#5a5950; font-weight:bold">Diabetes Australia</a>:
+                        <p>
+                            <a href="tel:1300136588" target="_blank" style="color:#34b6f8;"><u>1300 136 588</u></a>
+                        </p>
+                    </h2>
+
+                    <h2 style="font-family:'Segoe UI'">
+                        <a href="https://osteoporosis.org.au/" target="_blank" style="color:#5a5950; font-weight:bold">Osteoporosis Australia</a>:
+                        <p>
+                            <a href="tel:1800242141" target="_blank" style="color:#34b6f8;"><u>1800 242 141</u></a>
+                        </p>
+                    </h2>
+
+                    <h2 style="font-family:'Segoe UI'">
+                        <a href="https://www.heartfoundation.org.au/heart-health-education/heart-health-checks" target="_blank"
+                           style="color:#5a5950; font-weight:bold">Heart Health Information</a>:
+                        <p>
+                            <a href="tel:131112" target="_blank" style="color:#34b6f8;"><u>13 11 12</u></a>
+                        </p>
+
+                        <h2 style="font-family:'Segoe UI'">
+                            <a href="https://www.visionaustralia.org/" target="_blank" style="color:#5a5950; font-weight:bold">Vision Australia</a>:
+                            <p>
+                                <a href="tel:1300847466" target="_blank" style="color:#34b6f8;"><u>1300 847 466</u></a>
+                            </p>
+                        </h2>
+
+
+                        <h2 style="font-family:'Segoe UI'">
+                            <a href="https://www.nps.org.au/medicines-line" target="_blank"
+                               style="color:#5a5950; font-weight:bold">Medicines Line</a>:
+                            <p>
+                                <a href="tel:1300633424" target="_blank" style="color:#34b6f8;"><u>1300 633 424</u></a>
+                            </p>
+                        </h2>
+
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <h1 style="font-weight:bold; font-family:Bahnschrift">
+                        Fall Prevention Support
+                    </h1>
+
+                    <hr />
+
+                    <p>
+
+                    </p>
+
+                    <p>
+
+                    </p>
+
+                    <p>
+                        <h2 style="font-family:'Segoe UI'">
+                            <a href="https://www.myagedcare.gov.au/" target="_blank" style="color:#5a5950; font-weight:bold">Falls Prevention at My Aged Care</a>:
+                    <p>
+                        <a href="tel:1800200422" target="_blank" style="color:#34b6f8;"><u>1800 200 422</u></a>
+                    </p>
+                    </h2>
+                    </p>
+
+                    <p>
+                        <h2 style="font-family:'Segoe UI'">
+                            <a href="https://www.myagedcare.gov.au/" target="_blank" style="color:#5a5950; font-weight:bold">Day Therapy Centres</a>:
+                    <p>
+                        <a href="tel:1800200422" target="_blank" style="color:#34b6f8;"><u>1800 200 422</u></a>
+                    </p>
+                    </h2>
+                    </p>
+
+                    <p>
+                        <h2 style="font-family:'Segoe UI'">
+                            <a href="https://www.myagedcare.gov.au/" target="_blank" style="color:#5a5950; font-weight:bold">Translation & interpretation services</a>:
+                            <a href="tel:131450" target="_blank" style="color:#34b6f8;"><u>131 450</u></a>
+                        </h2>
+                    </p>
+
+                    <p>
+                        <h2 style="font-family:'Segoe UI'">
+                            <a href="https://www.myagedcare.gov.au/" target="_blank" style="color:#5a5950; font-weight:bold">Overseas Support for myagedcare</a>:
+                    <p>
+                        <a href="tel:+61262891555" target="_blank" style="color:#34b6f8;"><u>+61 2 6289 1555 (office hours)</u></a>
+                    </p>
+                    </h2>
+                    </p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <h1 style="font-weight:bold; font-family:Bahnschrift">
+                        Emergency Incidents
+                    </h1>
+
+                    <hr />
+
+                    <p>
+
+                    </p>
+
+                    <p>
+
+                    </p>
+
+
+                    <p>
+                        <h2>
+                            <a href="https://www.triplezero.gov.au/" target="_blank"
+                               style="color:#5a5950; font-weight:bold">Police, Fire or Ambulance</a>:
+                    <p>
+                        <a href="tel:000" target="_blank" style="color:#34b6f8;"><u>000</u></a>
+                    </p>
+                    </h2>
+                    </p>
+
+
+
+                    <p>
+                        <h2>
+                            <a href="https://www.smartraveller.gov.au/consular-services/consular-services-charter" target="_blank"
+                               style="color:#5a5950; font-weight:bold">International incident emergency</a>:
+                            <a href="tel:1300555135" target="_blank" style="color:#34b6f8;"><u>1300 555 135 (within Australia)</u></a>
+                        </h2>
+                    </p>
+
+                    <p>
+                        <h2>
+                            <a href="https://www.lifeline.org.au/" target="_blank" style="color:#5a5950; font-weight:bold">Lifeline</a>:
+                    <p>
+                        <a href="tel:131114" target="_blank" style="color:#34b6f8;"><u>13 11 14</u></a>
+                    </p>
+                    </p>
+                    </h2>
+                    </p>
+
+                    <p>
+                        <h2>
+                            <a href="https://www.lifeline.org.au/" target="_blank" style="color:#5a5950; font-weight:bold">Storm & Flood assistance</a>:
+                    <p>
+                        <a href="tel:132500" target="_blank" style="color:#34b6f8;"><u>132 500</u></a>
+                    </p>
+                    </h2>
+                    </p>
+
+
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <h1 style="font-weight:bold; font-family:Bahnschrift">
+                        Aged Care Helpines
+                    </h1>
+
+                    <hr />
+
+                    <p>
+
+                    </p>
+
+                    <p>
+
+                    </p>
+
+                    <p>
+                        <h2>
+                            <a href="https://www.carersaustralia.com.au/" target="_blank" style="color:#5a5950; font-weight:bold">Carers Australia</a>:
+                    <p>
+                        <a href="tel:1800242636" target="_blank" style="color:#34b6f8;"><u>1800 242 636</u></a>
+                    </p>
+                    </h2>
+                    </p>
+
+                    <p>
+                        <h2>
+                            <a href="https://www.servicesaustralia.gov.au/individuals/older-australians" target="_blank"
+                               style="color:#5a5950; font-weight:bold">Centrelink: Older Australians</a>:
+                    <p>
+                        <a href="tel:132300" target="_blank" style="color:#34b6f8;"><u>13 23 00</u></a>
+                    </p>
+                    </h2>
+                    </p>
+
+                    <p>
+                        <h2>
+                            <a href="https://www.health.gov.au/initiatives-and-programs/national-aged-care-advocacy-program-nacap"
+                               target="_blank" style="color:#5a5950; font-weight:bold">National Aged Care Advocacy</a>:
+                    <p>
+                        <a href="tel:1800700600" target="_blank" style="color:#34b6f8;"><u>1800 700 600</u></a>
+                    </p>
+                    </h2>
+                    </p>
+
+                    <p>
+                        <h2 style="font-family:'Segoe UI'">
+                            <a href="https://www.healthdirect.gov.au/partners/get-healthy-information-and-coaching-service" target="_blank"
+                               style="color:#5a5950; font-weight:bold">Get Healthy Information and Coaching Service</a>:
+                            <a href="tel:1300806258" target="_blank" style="color:#34b6f8;"><u>1300 806 258</u></a>
+                        </h2>
+                    </p>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/jquery.waypoints.min.js"></script>
+    <script src="~/Scripts/jquery.stellar.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/aos.js"></script>
+
+    <script src="~/Scripts/jquery.animateNumber.min.js"></script>
+    <script src="~/Scripts/scrollax.min.js"></script>
+    <script src="~/Scripts/google-map.js"></script>
+    <script src="~/Scripts/main.js"></script>
+
+
+
+
+    <div class="scrollelement">
+        <img src="~/Content/scrolltotop_128.png" id="scrollTop"
+             title="Click to scroll to top at once" style="height: 70%; width: 50%" />
+    </div>
+
+    <script>
+
+        var scrollTop = document.getElementById("scrollTop");
+
+        window.onscroll = function () {
+            scrollfunction()
+        }
+
+            ;
+        function scrollfunction() {
+            if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+                scrollTop.style.display = "block";
+            }
+
+            else {
+                scrollTop.style.display = "none";
+            }
+
+        }
+
+        scrollTop.addEventListener("click", function () {
+            window.scrollTo({
+                left: 0,
+                top: 0,
+                behavior: "smooth"
+            })
+        })
+
+    </script>
+
+
+</body>
+</html>
+

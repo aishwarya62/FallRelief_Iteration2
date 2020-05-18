@@ -1,0 +1,859 @@
+﻿@{
+    ViewBag.Title = "Tips";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tips and Recommendations for Fall Prevention</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="~/Content/open-iconic-bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Content/owl.theme.default.min.css" rel="stylesheet" />
+
+    <link href="~/Content/magnific-popup.css" rel="stylesheet" />
+    <link href="~/Content/aos.css" rel="stylesheet" />
+
+    <link href="~/Content/ionicons.min.css" rel="stylesheet" />
+
+    <link href="~/Content/flaticon.css" rel="stylesheet" />
+
+    <link href="~/Content/icomoon.css" rel="stylesheet" />
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        @@import url(http://fonts.googleapis.com/css?family=Raleway);
+        /*
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 60%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            margin: 10px 10px 15px 10px;
+        }
+            .active, .collapsible:hover {
+                background-color: #555;
+            }
+            .collapsible:after {
+                content: '\002B';
+                color: white;
+                font-weight: bold;
+                float: right;
+                margin-left: 5px;
+            }
+        .active:after {
+            content: "\2212";
+        }
+        */
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            width: 60%;
+        }
+
+        img {
+            width: 100%;
+            height: 200px;
+        }
+
+        .content-container {
+            text-align: center;
+        }
+
+        .container-fluid {
+            text-align: center;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Kollektif, sans-serif, Raleway;
+        }
+        /* Float four columns side by side */
+        .column {
+            float: left;
+            width: 25%;
+            padding: 4px 10px 4px 0px;
+        }
+        /* Remove extra left and right margins, due to padding in columns */
+        .row {
+            margin: 0 -5px;
+        }
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        /* Style the counter cards */
+        .card {
+            box-shadow: 2px 3px 6px 2px rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+            padding: 12px;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+        /*
+            .card:hover {
+                box-shadow: 3px 6px 9px 3px rgba(0, 0, 0, 0.2);
+            }*/
+        /* Responsive columns - one column layout (vertical) on small screens */
+        @@media screen and (max-width: 720px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+
+        img {
+            border-radius: 5px 5px 0 0;
+        }
+
+        .scrollelement {
+            position: fixed;
+            bottom: 25px;
+            right: -15px;
+            transition: 0.5s;
+        }
+
+            .scrollelement:hover {
+                opacity: 0.7;
+                transform: 0.5s;
+            }
+
+        * {
+            box-sizing: border-box;
+        }
+        /* Float four columns side by side */
+        .columntips {
+            float: left;
+            width: 25%;
+            padding: 0 10px;
+        }
+        /* Remove extra left and right margins, due to padding in columns */
+        .rowtips {
+            margin: 0 -5px;
+        }
+            /* Clear floats after the columns */
+            .rowtips:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        /* Responsive columns - one column layout (vertical) on small screens */
+        @@media screen and (max-width: 720px) {
+            .columntips {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+
+        .roundcard {
+            /* Add shadows to create the "card" effect */
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            /* width: 250px; */
+            transition: 0.3s;
+            padding: 12px;
+            background-color: #f1f1f1;
+            /* border-radius: 5px; */ /* 5px rounded corners */
+        }
+            /* On mouse-over, add a deeper shadow */
+            .roundcard:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+        /* Add some padding inside the card container */
+        .cardcontainer {
+            padding: 3px 5px;
+        }
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #ffffff;
+            position: relative;
+            text-align: center;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            align-content: center;
+            align-self: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 3px 5px 5px 3px;
+            margin: 3px 5px 5px 3px;
+        }
+            /* Style the buttons that are used to open the tab content */
+            .tab button {
+                background-color: inherit;
+                text-align: center;
+                justify-content: center;
+                align-content: center;
+                align-self: center;
+                position: relative;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 5px 70px;
+                transition: 0.3s;
+            }
+                /* Change background color of buttons on hover */
+                .tab button:hover {
+                    background-color: #f1f1f1;
+                }
+                /* Create an active/current tablink class */
+                .tab button.active {
+                    background-color: #f1f1f1;
+                }
+        /* Style the tab content */
+        .tabcontent {
+            text-justify: distribute-all-lines;
+            display: none;
+            padding: 6px 12px;
+            border: 0px solid #ccc;
+            border-top: hidden;
+            position: relative;
+            text-align: left;
+            /*align-items: center;
+            align-content: center;
+            justify-content: center;
+            align-content: center;
+            align-self: center; */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 3px 20px 20px 3px;
+            margin: 3px 20px 20px 3px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="ftco-animate">
+
+                <a href="/Home/Index">
+                    <img src="~/Content/Fall_Relief_edited_new.png" style="width:20%; height:20%;" />
+                </a>
+
+                <div id='cssmenu'>
+                    <ul>
+                        <li><a href="/Home/Index" class="nav-link">Home</a></li>
+                        <li><a href="/Home/Assessment" class="nav-link">Assessment</a></li>
+                        <li><a href="/Home/Tips" class="nav-link">Health Tips</a></li>
+                        <li><a href="/Home/Helplines" class="nav-link">Helplines</a></li>
+                        <li><a href="/Home/About" class="nav-link">About</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!--
+        <nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/Home/Index">Fall Relief </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="/Home/Index" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="/Home/Assessment" class="nav-link">Assessment</a></li>
+                        <li class="nav-item"><a href="/Home/Health Facility" class="nav-link">Health Facility</a></li>
+                        <li class="nav-item"><a href="/Home/EmergencyHelplines" class="nav-link">Emergency Helplines</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav> -->
+
+    </header>
+
+
+    <div class="container">
+        <!-- Tab links -->
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'Home Safety')" id="defaultOpen">Home Safety</button>
+            <button class="tablinks" onclick="openCity(event, 'Diet')">Diet</button>
+            <button class="tablinks" onclick="openCity(event, 'Activity')">Activity</button>
+
+        </div>
+    </div>
+
+    <div style="background-color:#F5F5F5">
+        <div class="container">
+            <!-- Tab content -->
+            <div id="Activity" class="tabcontent">
+                <div class="container">
+
+
+
+                    <h1 style="text-align:center; font-weight:bold">
+                        Tips and Recommendations for Activity:
+                    </h1>
+
+                    <p>
+
+                    </p>
+
+                    <hr />
+
+                    <h2>
+                        <p style="font-family:'Palatino Linotype'; text-align:center">
+                            "Adults aged 65 years and older should be physically active for about 30 minutes every day
+                            of moderate to vigorous-intensity physical activity each week, in sessions of 10 minutes or more.
+                            It can help maintain functional independence, maintain mobility, bone health and mental health, to reduce the
+                            chances of falling."
+                        </p>
+                        <p style="font-family:'Global Serif'; text-align:right">
+                            <b>— Australian Physical Activity Guidelines</b>
+                        </p>
+                        <p>
+
+                        </p>
+                        <p style="font-family:'Palatino Linotype'; margin-left:20px">
+                            Here are some recommended activities:
+                        </p>
+
+                        <p>
+
+                        </p>
+
+                        <p>
+
+                        </p>
+
+                        <div class="row">
+                            <div class="column">
+                                <div class="card">
+                                    <img src="~/Content/yoga_edited.jpg" alt="Avatar" style="width:100%; height:270px">
+                                    <p>
+
+                                    </p>
+                                    <h2><b>Yoga</b></h2>
+                                    <p style="font-size:16px;">Helps with light exercise and relaxing your mind</p>
+
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="card">
+                                    <img src="~/Content/pilates_edited.jpg" alt="Avatar" style="width:100%; height:270px">
+                                    <p>
+
+                                    </p>
+                                    <h2><b>Pilates</b></h2>
+                                    <p style="font-size:16px;">Helps to strengthen, improve balance & muscle condition</p>
+
+                                </div>
+                            </div>
+
+                            <div class="column">
+
+                                <div class="card">
+                                    <img src="~/Content/dancing.jpg" alt="Avatar" style="width:100%; height:270px">
+                                    <p>
+
+                                    </p>
+                                    <h2><b>Dancing</b></h2>
+                                    <p style="font-size:16px;">It consists of beneficial sequence of body movement</p>
+
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="card">
+                                    <img src="~/Content/walking_edited.jpg" alt="Avatar" style="width:100%; height:270px">
+                                    <p>
+
+                                    </p>
+                                    <h2><b>Walking</b></h2>
+                                    <p style="font-size:16px;">Great way to improve or maintain your overall health</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="justify-content:center">
+                            <div class="column">
+                                <div class="card">
+                                    <img src="~/Content/taichi_edited.jpg" alt="Avatar" style="width:100%; height:270px">
+                                    <p>
+
+                                    </p>
+                                    <h2><b>Tai Chi</b></h2>
+                                    <p style="font-size:16px;">Practiced for defense training, health benefits & meditation</p>
+
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="card">
+                                    <img src="~/Content/gardening_edited_2.jpg" alt="Avatar" style="width:100%; height:270px">
+                                    <p>
+
+                                    </p>
+                                    <h2><b>Community Gardening</b></h2>
+                                    <p style="font-size:16px;">Considered by many people to be the most relaxing activity</p>
+
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="card">
+                                    <img src="~/Content/aerobics_edited.jpg" alt="Avatar" style="width:100%; height:270px">
+                                    <p>
+
+                                    </p>
+                                    <h2><b>Aerobics</b></h2>
+                                    <p style="font-size:16px;">Stretching & Core training to improve overall fitness</p>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </h2>
+                </div>
+            </div>
+
+            <div id="Diet" class="tabcontent">
+                <div class="container">
+
+                    <h1 style="text-align:center; font-weight:bold">
+                        Tips and Recommendations for Diet:
+                    </h1>
+
+                    <p>
+
+                    </p>
+
+                    <hr />
+
+                    <h2>
+                        <p style="font-family:'Palatino Linotype'; text-align:center">
+                            "It is crucial to eat regular meals from a variety of food groups, stay hydrated and limit alcohol
+                            consumption for senior adults. Eating a healthy and balanced diet helps keep bones and muscles
+                            strong to minimize the falls and can prevent or manage some health conditions like heart disease,
+                            diabetes, and osteoporosis."
+                            <!--On the contrary, poor nutrition and skipping meals can cause dizzy,
+                            light-headed and reduce the concentration and can lead to a fall. -->
+                        </p>
+
+                        <p style="font-family:'Global Serif'; text-align:right">
+                            <b>— Stay On Your Feet® Fall Prevention Program</b>
+                        </p>
+
+                        <p>
+
+                        </p>
+
+                        <p style="font-family:'Palatino Linotype'; margin-left:20px">
+                            Here are some General Healthy Diet Tips:
+                        </p>
+
+                        <p>
+
+                        </p>
+
+                        <p>
+
+                        </p>
+
+                        <div>
+                            <div class="row">
+                                <div class="column">
+                                    <div class="card">
+                                        <img src="~/Content/breakfast.jpg" alt="Avatar" style="width:100%; height:270px">
+                                        <div class="cardcontainer">
+                                            <h2><b>Breakfast</b></h2>
+                                            <p style="font-size:16px;">Do not skip meals, and always eat heavy and nutritious breakfast for better health.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column">
+                                    <div class="card">
+                                        <img src="~/Content/fruitsveggies.jpg" alt="Avatar" style="width:100%; height:270px">
+                                        <div class="cardcontainer">
+                                            <h2><b>Fruits and Veggies</b></h2>
+                                            <p style="font-size:16px;">Cook with fresh fruit and vegetables – even frozen, canned, and dried varieties.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column">
+                                    <div class="card">
+                                        <img src="~/Content/salt.jpg" alt="Avatar" style="width:100%; height:270px">
+                                        <div class="cardcontainer">
+                                            <h2><b>Salt</b></h2>
+                                            <p style="font-size:16px;">Avoid adding extra salt to your meal. Instead, use more natural herbs and spices.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column">
+                                    <div class="card">
+                                        <img src="~/Content/water.jpg" alt="Avatar" style="width:100%; height:270px">
+                                        <div class="cardcontainer">
+                                            <h2><b>Water</b></h2>
+                                            <p style="font-size:16px;">Drink a full glass of water first thing in the morning. Keep hydrated every day.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="justify-content:center">
+                                <div class="column">
+                                    <div class="card">
+                                        <img src="~/Content/supplements.jpg" alt="Avatar" style="width:100%; height:270px">
+                                        <div class="cardcontainer">
+                                            <h2><b>Vitamin D and Calcium</b></h2>
+                                            <p style="font-size:16px;">Take in enough vitamin D and calcium. Naturally available in milk or dairy products.*</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column">
+                                    <div class="card">
+                                        <img src="~/Content/alcohol.jpg" alt="Avatar" style="width:100%; height:270px">
+                                        <div class="cardcontainer">
+                                            <h2><b>Alcohol Consumption</b></h2>
+                                            <p style="font-size:16px;">Reduce or avoid alcohol at all. It can cause dizziness, nausea and lack of awareness.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column">
+                                    <div class="card">
+                                        <img src="~/Content/smoking.jpg" alt="Avatar" style="width:100%; height:270px">
+                                        <div class="cardcontainer">
+                                            <h2><b>Quit Smoking</b></h2>
+                                            <p style="font-size:16px;">Smoking leads to disease, disability & harms nearly every organ of the body.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </h2>
+
+                </div>
+
+                <p>
+
+                </p>
+
+                <p style="text-align:center">
+                    * It is important to check with your GP regarding calcium and vitamin D supplements.
+                </p>
+
+            </div>
+
+            <div id="Home Safety" class="tabcontent">
+                <div class="container">
+
+
+
+                    <h1 style="text-align:center; font-weight:bold">
+                        Tips and Recommendations for Home Safety:
+                    </h1>
+
+                    <hr />
+
+                    <p>
+
+                    </p>
+
+                    <h2>
+                        <p style="font-family:'Palatino Linotype'; text-align:center">
+                            "The majority of falls happen in and around the home are caused by potential hazards which can
+                            be prevented by making a few small changes. Hazards in the home can come in a variety of forms,
+                            so it is important to check home for the person you care about regularly to avoid a fall."
+                        </p>
+
+                        <p style="font-family:'Global Serif'; text-align:right">
+                            <b>— Home Accident Statistics, A Secure Life</b>
+                        </p>
+
+                        <p>
+
+                        </p>
+
+                        <p>
+
+                        </p>
+                        <p style="font-family:'Palatino Linotype'; margin-left:20px">
+                            Here are some Home Safety Tips (Few changes may require extra support from a specialist & repair service):
+                        </p>
+
+                        <p>
+
+                        </p>
+
+                        <p>
+
+                        </p>
+
+                        <div>
+                            <div class="row">
+                                <div class="column">
+                                    <div class="card">
+                                        <img src="~/Content/clutter_edited.jpg" alt="Avatar" style="width:100%; height:270px">
+                                        <div class="cardcontainer">
+                                            <h2><b>Remove clutter</b></h2>
+                                            <p style="font-size:16px;">Remove things that could cause trip such as throw rugs, clutter, and electrical cords.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column">
+                                    <div class="card">
+                                        <img src="~/Content/lights_edited.jpg" alt="Avatar" style="width:100%; height:270px">
+                                        <div class="cardcontainer">
+                                            <h2><b>Improve lighting</b></h2>
+                                            <p style="font-size:16px;">Have good lighting in all rooms, hallways, outside steps, and entrances.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column">
+                                    <div class="card">
+                                        <img src="~/Content/level_edited.jpg" alt="Avatar" style="width:100%; height:270px">
+                                        <div class="cardcontainer">
+                                            <h2><b>Level</b></h2>
+                                            <p style="font-size:16px;">Make sure sidewalks, decks and other walking areas are levelled properly</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column">
+                                    <div class="card">
+                                        <img src="~/Content/footwear_edited.jpg" alt="Avatar" style="width:100%; height:270px">
+                                        <div class="cardcontainer">
+                                            <h2><b> Footwear matters</b></h2>
+                                            <p style="font-size:16px;">Wear suitable footwear especially, if recommended by your podiatrist.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row" style="justify-content:center">
+
+                                <div class="column">
+                                    <div class="card">
+                                        <img src="~/Content/spills_edited.jpg" alt="Avatar" style="width:100%; height:270px">
+                                        <div class="cardcontainer">
+                                            <h2><b>Clean up spills</b></h2>
+                                            <p style="font-size:16px;">
+                                                Clean up spills right away in case of slipping.
+                                                Also, stick adhesive stickers on bathtubs and other common places.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column">
+                                    <div class="card">
+                                        <img src="~/Content/handrail_edited.jpg" alt="Avatar" style="width:100%; height:270px">
+                                        <div class="cardcontainer">
+                                            <h2><b>Install handrails</b></h2>
+                                            <p style="font-size:16px;">
+                                                Add grab bars to showers and tubs.
+                                                Add handrails to both sides of stairs and edging strips to each step.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column">
+                                    <div class="card">
+                                        <img src="~/Content/report_edited.jpg" alt="Avatar" style="width:100%; height:270px">
+                                        <div class="cardcontainer">
+                                            <h2><b>Report actively</b></h2>
+                                            <p style="font-size:16px;">
+                                                Report hazards in the community that could increase the
+                                                risk of falling actively to your local council.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        function openCity(evt, cityName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
+
+
+
+    <footer class="ftco-footer ftco-bg-light" style="border-top:3px; border-top-color:#000000">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md" style="vertical-align:central">
+                    <div class="ftco-footer-widget mb-4" style="margin: 50px 0 0 30px">
+                        <h1 class="logo">
+                            <a href="#" style="letter-spacing:3px">
+                                Fall Relief <sup style="text-size-adjust:150%; color:#34b6f8">+</sup>
+                            </a>
+                        </h1>
+                        <div style="color:#34b6f8">
+                            <p>
+                                <b>Supporting you at every step</b>
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2><b>Crafted with ❤ in Melbourne</b></h2>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5" style="margin-top:50px">
+                        <h2 class="ftco-heading-2"><b>Our Services</b></h2>
+                        <ul class="list-unstyled">
+
+                            <li><a href="/Home/Assessment" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Fall Assessment</a></li>
+                            <li><a href="/Home/Tips" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Health Tips</a></li>
+                            <li><a href="/Home/EmergencyHelplines" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Emergency Helplines</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4" style="margin-top:50px">
+                        <h2 class="ftco-heading-2"><b>Contact</b></h2>
+                        For enquiries and support:
+                        <p>
+                            Contact us at <a href="mailto:fallrelief@outlook.com" target="_blank"><u>fallrelief@outlook.com</u></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/jquery.waypoints.min.js"></script>
+    <script src="~/Scripts/jquery.stellar.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/aos.js"></script>
+
+    <script src="~/Scripts/jquery.animateNumber.min.js"></script>
+    <script src="~/Scripts/scrollax.min.js"></script>
+    <script src="~/Scripts/google-map.js"></script>
+    <script src="~/Scripts/main.js"></script>
+
+    <!--
+    <div class="scrollelement">
+        <img src="~/Content/scrolltotop_128.png" onclick='window.scrollTo({top: 0, left: 0, behavior: "smooth"});'
+             title="Click to scroll to top at once" style="height: 70%; width: 50%" />
+    </div>
+        -->
+
+    <div class="scrollelement">
+        <img src="~/Content/scrolltotop_128.png" id="scrollTop"
+             title="Click to scroll to top at once" style="height: 70%; width: 50%" />
+    </div>
+
+    <script>
+        var scrollTop = document.getElementById("scrollTop");
+        window.onscroll = function () {
+            scrollfunction()
+        }
+            ;
+        function scrollfunction() {
+            if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+                scrollTop.style.display = "block";
+            }
+            else {
+                scrollTop.style.display = "none";
+            }
+        }
+        scrollTop.addEventListener("click", function () {
+            window.scrollTo({
+                left: 0,
+                top: 0,
+                behavior: "smooth"
+            })
+        })
+    </script>
+
+
+</body>
+  </html>

@@ -1,0 +1,422 @@
+﻿@model RiskAssessment.Models.QuestionModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="~/Content/open-iconic-bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Content/owl.theme.default.min.css" rel="stylesheet" />
+
+    <link href="~/Content/magnific-popup.css" rel="stylesheet" />
+    <link href="~/Content/aos.css" rel="stylesheet" />
+
+    <link href="~/Content/ionicons.min.css" rel="stylesheet" />
+
+    <link href="~/Content/flaticon.css" rel="stylesheet" />
+
+    <link href="~/Content/icomoon.css" rel="stylesheet" />
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <link href="~/Content/homeaction.css" rel="stylesheet" />
+
+
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+
+    <link href="~/Content/progressbar.css" rel="stylesheet" />
+    <link href="~/Content/assessment.css" rel="stylesheet" />
+    <style>
+        input[type="radio"] {
+            -ms-transform: scale(1.5);
+            -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+        }
+        a.button {
+            background-color: #4473c4;
+            color: white;
+            padding: 4px 30px 4px 30px;
+            margin: 10px 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .Question-section {
+            font-size: 35px;
+        }
+
+        .row {
+            margin-top: 25px;
+            margin-bottom: 50px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+
+
+
+
+
+
+        <div class="container">
+            <div class="ftco-animate">
+                <a href="/Home/Index">
+                    <img src="~/Content/Fall_Relief_edited_new.png" style="width:20%; height:20%; left:50em" />
+                </a>
+
+                <div id='cssmenu'>
+                    <ul>
+                        <li><a href="/Home/Index" class="nav-link">Home</a></li>
+                        <li><a href="/Home/Assessment" class="nav-link">Assessment</a></li>
+                        <li><a href="/Home/Tips" class="nav-link">Health Tips</a></li>
+                        <li><a href="/Home/Helplines" class="nav-link">Helplines</a></li>
+                        <li><a href="/Home/About" class="nav-link">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    @{
+        var totalSectionNO = Model.TotalNoOfSections;
+    }
+
+
+    @if (Model.AssessmentTypeID == 1)
+    {
+        <div class="container" style="padding-left:40px;padding-right:0px;padding-bottom:100px">
+            <div class="tabbable">
+                <ul class="nav nav-tabs wizard " style="width:113%">
+                    <li id="step1" class="active"><a><span class="nmbr">1</span>Basic Info</a></li>
+                    <li id="step2"><a><span class="nmbr">2</span>Fall History</a></li>
+                    <li id="step3"><a><span class="nmbr">3</span>Medical History</a></li>
+                    <li id="step4"><a><span class="nmbr">4</span>Results</a></li>
+                </ul>
+            </div>
+
+            <div class="container" style="background-color:#F8F8FF;border-left-style:solid;border-left-color:#4473c4;width:90%;margin:0">
+                <div class="container col-md-10" style="margin-left:0px;padding-left:40px;padding-right:0px">
+                    <div class="row">
+
+
+                        @using (Html.BeginForm("PostAnswer", "Home", FormMethod.Post, new { @id = "form" }))
+                        {
+                            @Html.Hidden("Direction", "forward")
+                            <input type="hidden" name="SessionID" value="@(Session["SessionID"])" />
+                            <input type="hidden" name="AssessmentTypeID" value="@(Model.AssessmentTypeID)" />
+                            <input type="hidden" name="SectionID" value="@(Model.SectionID)" />
+
+                            for (int x = 0; x < Model.Qlist.Count; x++)
+                            {
+
+                                <p style="font-size:18px;color:black;font-weight:bold">
+
+                                    @Html.Raw(Model.Qlist[x].Question ?? "")
+                                </p>
+
+                                <input type="hidden" name="Alist[@x].QuestionID" value="@(Model.Qlist[x].QuestionID)" />
+
+                                <ul class="js_choices" style="list-style-type:none;">
+                                    @for (int i = 0; i < Model.Qlist[x].Rlist.Count; i++)
+                                    {
+
+                                        <li style="font-size:16px;color:black">
+                                            <input type="hidden" name="Alist[@x].UserReponse[@i].ResponseID" value="@(Model.Qlist[x].Rlist[i].ResponseID)" />
+                                            <input type="radio" name="Alist[@x].UserReponse[@i].IsChecked" @(!string.IsNullOrEmpty(Model.Qlist[x].Rlist[i].Answer) ? "CHECKED" : "") />
+                                            <span class="Code">@Html.Raw(Model.Qlist[x].Rlist[i].Response.Replace("[", "&lt;").Replace("]", "gt;"))</span>
+                                        </li>
+
+                                    }
+                                </ul>
+                                <input type="hidden" name="Answer" value="no data" />
+
+
+                            }
+
+
+                            for (int x = 0; x < totalSectionNO; x++)
+                            {
+                                @*<td><a href=" @Url.Action("QuestionAssessment", "Home", new {@SessionID = Session["SessionID"], @qno=(i+1) })">@(i+1)</a></td>*@
+
+                                if (Model.SectionNo == (x + 1))
+                                {
+                                    if (Model.SectionNo == totalSectionNO)
+                                    {
+                                        <a href="javascript:void(0);" class="button" onclick="saveBackward(this);"> Previous</a>
+                                        //<a href="@Url.Action("AssessmentResult", "Home", new { @SessionID = Session["SessionID"] })" onclick="saveForwardFinal(this);"></a>
+                                        //<button class="btn btn-primary" onclick="saveForwardFinal(this);">Submit</button>
+                                        //
+                                        <a class="button" style="padding:4px 45px 4px 45px;color:white" onclick="saveForwardFinal(this);">Review</a>
+
+
+                                    }
+                                    else
+                                    {
+                                        <a href="javascript:void(0);" class="button" onclick="saveBackward(this);"> Previous</a>
+                                        <a href="@Url.Action("QuestionAssessment", "Home", new { @SessionID = Session["SessionID"], @secNO = (x + 2) })"></a>
+                                        <a href="javascript:void(0);" class="button" style="padding:4px 45px 4px 45px" onclick="saveForward(this);">Next</a>
+                                    }
+                                }
+                            }
+
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    }
+
+    else
+    {
+        <div class="container" style="padding-left:40px;padding-right:0px;padding-bottom:100px">
+            <div class="tabbable">
+                <ul class="nav nav-tabs wizard" style="width:90%;margin-left:0px">
+                    <li id="step1" class="active"><a><span class="nmbr">1</span>Lighting</a></li>
+                    <li id="step2"><a><span class="nmbr">2</span>Floor</a></li>
+                    <li id="step3"><a><span class="nmbr">3</span>Stairs/Steps </a></li>
+                    <li id="step4"><a><span class="nmbr">4</span>Miscellaneous</a></li>
+                    <li id="step5"><a><span class="nmbr">5</span>Results</a></li>
+                </ul>
+            </div>
+            <div class="container" style="background-color:#F8F8FF;border-left-style:solid;border-left-color:#4473c4;width:90%;margin:0">
+                <div class="container col-md-10" style="margin-left:0px;padding-left:40px">
+                    <div class="row">
+
+
+                        @using (Html.BeginForm("PostAnswer", "Home", FormMethod.Post, new { @id = "form" }))
+                        {
+                            @Html.Hidden("Direction", "forward")
+                            <input type="hidden" name="SessionID" value="@(Session["SessionID"])" />
+                            <input type="hidden" name="AssessmentTypeID" value="@(Model.AssessmentTypeID)" />
+                            <input type="hidden" name="SectionID" value="@(Model.SectionID)" />
+
+                            for (int x = 0; x < Model.Qlist.Count; x++)
+                            {
+
+                                <p style="font-size:18px;color:black;font-weight:bold">
+
+                                    @Html.Raw(Model.Qlist[x].Question ?? "")
+                                </p>
+
+                                <input type="hidden" name="Alist[@x].QuestionID" value="@(Model.Qlist[x].QuestionID)" />
+
+                                <ul class="js_choices" style="list-style-type:none;">
+                                    @for (int i = 0; i < Model.Qlist[x].Rlist.Count; i++)
+                                    {
+
+                                        <li style="font-size:16px;color:black">
+                                            <input type="hidden" name="Alist[@x].UserReponse[@i].ResponseID" value="@(Model.Qlist[x].Rlist[i].ResponseID)" />
+                                            <input type="radio" name="Alist[@x].UserReponse[@i].IsChecked" @(!string.IsNullOrEmpty(Model.Qlist[x].Rlist[i].Answer) ? "CHECKED" : "") />
+                                            <span class="Code">@Html.Raw(Model.Qlist[x].Rlist[i].Response.Replace("[", "&lt;").Replace("]", "gt;"))</span>
+                                        </li>
+
+                                    }
+                                </ul>
+                                <input type="hidden" name="Answer" value="no data" />
+
+
+                            }
+
+
+                            for (int x = 0; x < totalSectionNO; x++)
+                            {
+                                @*<td><a href=" @Url.Action("QuestionAssessment", "Home", new {@SessionID = Session["SessionID"], @qno=(i+1) })">@(i+1)</a></td>*@
+
+                                if (Model.SectionNo == (x + 1))
+                                {
+                                    if (Model.SectionNo == totalSectionNO)
+                                    {
+                                        <a href="javascript:void(0);" class="button" onclick="saveBackward(this);"> Previous</a>
+                                        //<a href="@Url.Action("AssessmentResult", "Home", new { @SessionID = Session["SessionID"] })" onclick="saveForwardFinal(this);"></a>
+                                        //<button class="btn btn-primary" onclick="saveForwardFinal(this);">Submit</button>
+                                        //
+                                        <a class="button" style="color:white;padding:4px 45px 4px 45px" onclick="saveForwardFinal(this);">Review</a>
+
+
+                                    }
+                                    else
+                                    {
+                                        <a href="javascript:void(0);" class="button" onclick="saveBackward(this);"> Previous</a>
+                                        <a href="@Url.Action("QuestionAssessment", "Home", new { @SessionID = Session["SessionID"], @secNO = (x + 2) })"></a>
+                                        <a href="javascript:void(0);" style="padding:4px 45px 4px 45px" class="button" onclick="saveForward(this);">Next</a>
+                                    }
+                                }
+                            }
+
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    }
+
+
+
+
+
+    <script>
+
+        function saveForward(sender) {
+            $("#Direction").val("forward");
+            document.getElementById("form").submit();
+        }
+
+
+        function saveBackward(sender) {
+            $("#Direction").val("backward");
+            document.getElementById("form").submit();
+        }
+
+
+
+
+
+        function saveForwardFinal(sender) {
+            $("#Direction").val("nextPage");
+            document.getElementById("form").submit();
+
+
+        }
+
+    </script>
+
+
+    @section scripts{
+        <script>
+            $(document).ready(function () {
+
+
+                $('ul.js_choices li input[type="radio"]').on('click', function () {
+                    var parentul = $(this).closest('ul.js_choices');
+                    $.each(parentul.find('input[type="radio"][name!="' + $(this).attr('name') + '"]:checked'), function (i, e) {
+                        $(e).prop('checked', false);
+                    });
+                });
+
+
+                if ("@Model.QuestionSection" == "Fall History") {
+                    jQuery('#step' + 2).prevAll().addClass("completed");
+                    jQuery('#step' + 2).prevAll().removeClass("active");
+                    jQuery('#step' + 2).addClass("active");
+                }
+                 if ("@Model.QuestionSection" == "Medical History") {
+                    jQuery('#step' + 3).prevAll().addClass("completed");
+                    jQuery('#step' + 3).prevAll().removeClass("active");
+                    jQuery('#step' + 3).addClass("active");
+                }
+                 if ("@Model.QuestionSection" == "Floor") {
+                    jQuery('#step' + 2).prevAll().addClass("completed");
+                    jQuery('#step' + 2).prevAll().removeClass("active");
+                    jQuery('#step' + 2).addClass("active");
+                }
+                if ("@Model.QuestionSection" == "Stairs/Steps") {
+                    jQuery('#step' + 3).prevAll().addClass("completed");
+                    jQuery('#step' + 3).prevAll().removeClass("active");
+                    jQuery('#step' + 3).addClass("active");
+                }
+                if ("@Model.QuestionSection" == "Miscellaneous Obstacles") {
+                    jQuery('#step' + 4).prevAll().addClass("completed");
+                    jQuery('#step' + 4).prevAll().removeClass("active");
+                    jQuery('#step' + 4).addClass("active");
+                }
+            })
+
+
+
+            function startok(num) {
+                jQuery('#step'+num).prevAll().addClass("completed");
+                jQuery('#step'+num).prevAll().removeClass("active");
+                jQuery('#step'+num).addClass("active");
+            }
+
+        </script>
+    }
+    <footer class="ftco-footer ftco-bg-light" style="border-top:3px; border-top-color:#000000">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md" style="vertical-align:central">
+                    <div class="ftco-footer-widget mb-4" style="margin: 50px 0 0 30px">
+                        <h1 class="logo">
+                            <a href="#" style="letter-spacing:3px">
+                                Fall Relief <sup style="text-size-adjust:150%; color:#34b6f8">+</sup>
+                            </a>
+                        </h1>
+                        <div style="color:#34b6f8">
+                            <p>
+                                <b>Supporting you at every step</b>
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2><b>Crafted with ❤ in Melbourne</b></h2>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5" style="margin-top:50px">
+                        <h2 class="ftco-heading-2"><b>Our Services</b></h2>
+                        <ul class="list-unstyled">
+
+                            <li><a href="/Home/Assessment" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Fall Assessment</a></li>
+                            <li><a href="/Home/Tips" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Health Tips</a></li>
+                            <li><a href="/Home/EmergencyHelplines" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Emergency Helplines</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4" style="margin-top:50px">
+                        <h2 class="ftco-heading-2"><b>Contact</b></h2>
+                        For enquiries and support:
+                        <p>
+                            Contact us at <a href="mailto:fallrelief@outlook.com" target="_blank"><u>fallrelief@outlook.com</u></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+        </div>
+    </footer>
+
+
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/jquery.waypoints.min.js"></script>
+    <script src="~/Scripts/jquery.stellar.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/aos.js"></script>
+
+    <script src="~/Scripts/jquery.animateNumber.min.js"></script>
+    <script src="~/Scripts/scrollax.min.js"></script>
+    <script src="~/Scripts/google-map.js"></script>
+    <script src="~/Scripts/main.js"></script>
+
+</body>
+</html>
